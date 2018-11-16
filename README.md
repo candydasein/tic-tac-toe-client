@@ -22,5 +22,9 @@ User stories were:
 4) The player must be able to play again without refreshing the page
 5) The player should be immersed in some kind of fun or weird feeling 
 
+An image of my original wireframe is available here: 
+        tic-tac-toe-client/IMG_6798.jpeg
+      
+
 
 			
