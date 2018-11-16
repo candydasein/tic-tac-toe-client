@@ -4,7 +4,7 @@
       <title>TICTACTOE</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <style>
-        @import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+        @import url('https://fonts.googleapis.com/css?family=Federant');
       </style>
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -15,18 +15,19 @@
     </head>
     
     <body>
-
-      <h1 id="pagetitle">T I C - T A C – T O E</h1>
+      <audio src="audio/SpaceChoir.mp3" type="audio/mp3" autoplay loop></audio>
+      <div id="background">
+      <h1 id="pagetitle">T i c - T a c – T o e</h1>
       
             <!--Big div for all the forms-->
       <div id="forms">
       <form id="sign-up">
         <fieldset>
-          <legend>Sign Up!</legend>
+          <legend>Sign Up</legend>
           <input type="text" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input type="submit" value="Sign Up!">
+          <input type="submit" value="Sign Up">
         </fieldset>
       </form>
       <br>
@@ -35,7 +36,7 @@
           <legend>Sign In</legend>
           <input type="text" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" value="Sign in">
+          <input type="submit" value="Sign In">
         </fieldset>
       </form>
       <form id="change-password" hidden>
@@ -49,32 +50,34 @@
       <form id="sign-out" hidden>
         <fieldset>
           <legend>Sign Out</legend>
-          <input type="submit" value="Sign out">
+          <input type="submit" value="Sign Out">
         </fieldset>
       </form> 
                 <!--forms end here-->
 
       <br>
+      
       <!-- <div>
         <p id="message"> </p>
       </div> -->
       <!--Play button-->
       <form id="new-game-button" hidden>
-          <input type="submit" value="Play!">
+          <input type="submit" value="Play">
       </form>
       <form id="get-games-button" hidden>
-        <input type="submit" value="Get Past Games">
+        <input type="submit" value="Past Games">
     </form>
     <form id="playagainbutton" hidden>
-      <input type="submit" value="Click to Play Again!">
+      <input type="submit" value="Play Again">
   </form>
     </div>
-
+<br>
+<br>
     <div id="message">
-      <!-- <p > </p> -->
+      Welcome
     </div>
     <!--Game placeholder div-->
-      <div id="game-div">
+    <div id="game-div">
 
         <!--Game board itself-->
         <table id="game-board" hidden>
@@ -95,7 +98,8 @@
           </tr>
         </table>
     </div>
-  
-    
-    </body>
+    <br>
+    <div id="mini-board"></div>    
+  </div>  
+  </body>
 </html>

@@ -15,10 +15,14 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
     store.user = data.user
-    $('#message').text('You are in!')
-    $('#message').addClass('success')
     $('#sign-up').hide()  
-    $('#sign-in').hide()  
+    $('#sign-in').hide()
+    document.getElementById('change-password').hidden = false
+    document.getElementById('sign-out').hidden = false
+    document.getElementById('new-game-button').hidden = false
+    document.getElementById('get-games-button').hidden = false  
+    $('#message').text('You are in.')
+    $('#message').addClass('success')
     $('#game-board').show()    
     console.log('signInSuccess ran. Data is :', data)
 }
@@ -42,7 +46,7 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
-    $('#message').text('See ya!')
+    $('#message').text('Goodbye.')
     store.user = null
     $('#message').addClass('success')    
     console.log('signOutSuccess ran. Data is', data)
@@ -56,7 +60,7 @@ const signOutFailure = function (error) {
 
 const startGameSuccess = function(data) {
     store.game = data.game 
-    $('#message').text('Welcome aboard!')  
+    $('#message').text('Good luck.')  
     console.log('startGameSuccess ran. Data is :', data)
 }
 
@@ -74,29 +78,36 @@ const updateGameSuccess = function(data) {
 
 const getGamesSuccess = function (data) {
     store.games = data.games
-    let userResults = []
     if (store.games.length > 0) {
         store.games.forEach(function (game) {
-            userResults.push(game.cells)
-        }
-     )}
-    
-
-    // const getGames = function () {
-    //     for (i = 0; i < store.games.length; i++) {
-    //        userResults.push(store.games[i].cells)
-    //     }
-    // }
-    //getGames()
-    $('#message').html(`<p style="width:30px">Past games: ${userResults}</p>`)
-    console.log('getGamesSuccess ran. Data is :', userResults)
-    //pass store.games info: throw data back at user (would be adequate
-    // for this assignment), 
-    // or run cells
-    // for over games back through gameEngine
-    // each element of the array that comes back is an object
-    //the array itself is called games
-
+    $('#mini-board').append(`
+        <tr>
+          <td>${game.id}</td>
+          <td>
+            <table>
+              <tr>
+                <td>${game.cells[0]}</td>
+                <td>${game.cells[1]}</td>
+                <td>${game.cells[2]}</td>
+              </tr>
+              <tr>
+                <td>${game.cells[3]}</td>
+                <td>${game.cells[4]}</td>
+                <td>${game.cells[5]}</td>
+              </tr>
+              <tr>
+                <td>${game.cells[6]}</td>
+                <td>${game.cells[7]}</td>
+                <td>${game.cells[8]}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+       `)
+    })
+} else {
+    $('#message').append('<p>No past games for this user.</p>')
+}
 }
 
 const getGamesFailure = function () {

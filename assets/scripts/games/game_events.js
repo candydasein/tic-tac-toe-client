@@ -21,7 +21,6 @@ const clickEvents = function () {
     $('#6').on('click', () => onMakeMove(event))
     $('#7').on('click', () => onMakeMove(event))
     $('#8').on('click', () => onMakeMove(event))
-    console.log("SOMETHING!!! FUCK!!!")
     currentPlayer = "X"
     moveMade = false
     boardArray = []
@@ -56,6 +55,20 @@ const onStartNewGame = function (event) {
 
 const gameOver = function (){
     document.getElementById('playagainbutton').hidden = false
+    $('td').off()
+    const data = {
+        game: {
+           cell: {
+       value: currentPlayer,
+       index: event.target.id
+       },
+       over: overOrNot
+        }
+   }
+   api.updateGame(data)
+   .then(ui.updateGameSuccess)
+   .catch(ui.updateGameFailure)
+   $('new-game-button').hide()
 }
 
 const gameEngine = function () {
@@ -70,7 +83,7 @@ const gameEngine = function () {
             boardArray[0] === 'O' && boardArray[4] === 'O' && boardArray [8] === 'O' ||
             boardArray[2] === 'O' && boardArray[4] === 'O' && boardArray [6] === 'O') 
             {
-              $('#message').text('O WINSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+              $('#message').text('O WINS!')
               win = true
               overOrNot = true
               gameOver()
@@ -84,13 +97,13 @@ const gameEngine = function () {
                  boardArray[0] === 'X' && boardArray[4] === 'X' && boardArray [8] === 'X' ||
                  boardArray[2] === 'X' && boardArray[4] === 'X' && boardArray [6] === 'X') 
             {
-                $('#message').text('X WINSSSSSSSS!!!!!!!!!!!!!!!!!!!!!!')
+                $('#message').text('X WINS!')
                 win = true
                 overOrNot = true
                 gameOver ()
             }
            else if (totalsBoardArray.length === 9 && win === false) {
-                $('#message').text('TIE GAME...........................')
+                $('#message').text('TIE GAME.')
                 overOrNot = true
                 gameOver ()
             }
@@ -102,8 +115,8 @@ const switchPlayers = function () {
     } else if (currentPlayer === "O" && moveMade === true) {
         currentPlayer = "X"
     }
-       moveMade = false 
-    }
+    moveMade = false 
+}
 
 const onMakeMove = function(event) { //this is getting called twice 
     // with each click on the second
@@ -112,7 +125,10 @@ const onMakeMove = function(event) { //this is getting called twice
     //or could see if cell has a value and not run if so, return/exit function
     //
      //DEACTIVATE CELLS
-     if (moveMade === false) {
+     let alreadyRan = false 
+     
+     console.log("alreadyRan is " + alreadyRan)
+     if (alreadyRan === false) {
      console.log("onMakeMove happened! " + "event.target.id is " + event.target.id)
      $('#' + event.target.id).off()
      
@@ -154,6 +170,7 @@ const onMakeMove = function(event) { //this is getting called twice
     console.log("boardArray.length is " + boardArray.length)
     console.log("totalsBoardArray is " + totalsBoardArray)
     console.log("totalsBoardArray.length is " + totalsBoardArray.length)
+    alreadyRan = true 
     }
     else {
         return 

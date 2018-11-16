@@ -2,9 +2,7 @@
 
 body {
     background-color: rgb(0, 0, 0);
-   // animation: blinker 0.005s cubic-bezier(.5, 0, 1, 1) infinite alternate; 
-    background-image: url("https://apod.nasa.gov/apod/image/1705/Arp273Main_HubblePestana_3079.jpg"); 
-    //background-size: cover;
+    background: url("https://apod.nasa.gov/apod/image/1705/Arp273Main_HubblePestana_3079.jpg");   
 }
 
 #pagetitle {
@@ -19,21 +17,24 @@ body {
     margin-right: auto;
 }
 
-td {
+#game-board td {
     padding: 70px;
     width: 50px;
     height: 50px;
     border: 1px solid rgb(43, 4, 4); 
     background-color:rgba(24, 23, 23, 0.913);
-   // font-family: Gugi;
-    font-size: 45px;
+    font-size: 60px;
     text-align: center;
     vertical-align: middle;
     color: rgb(252, 234, 34);
-    //position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: content-box;  
+    display: grid;
+    //font-family: Arial, Helvetica, sans-serif;
 }
 
-td:hover {
+#game-board td:hover {
     background-color: rgba(53, 51, 51, 0.749);
 }
 
@@ -41,17 +42,17 @@ table {
     //align-content: center;
     table-layout: fixed;
     //justify-content: center;
-    text-align: center; 
+    //text-align: center; 
     vertical-align: middle;
 }
 
 @font-face {
-    font-family: "Bungee Shade";
-    src: url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+    font-family: "Federant";
+    src: url('https://fonts.googleapis.com/css?family=Federant');
   }
 
 body {
-    font-family: 'Bungee Shade';font-size: 22px;
+    font-family: 'Federant';font-size: 22px;
 }
 
 #game-div {
@@ -74,16 +75,35 @@ body {
 input {
     border-radius: 8px;
 }
+
 @keyframes blinker { to { opacity: .3; } }
 
 #message {
     font-size: 40px;
-    color: rgb(156, 244, 80);
-    animation: blinker 3s cubic-bezier(.5, 0, 1, 1) infinite alternate;
-    width: 200px;  
+    color: rgb(232, 63, 232);
+    animation: blinker 4s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+    text-align: center; 
 }
 
-// td {
-//     font-size: 150px;
-// }
+#mini-board {
+    box-sizing: content-box;
+}
+#mini-board tr {
+    margin-right: 6px;
+}
+
+#mini-board td { 
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(43, 4, 4); 
+    background-color:rgba(118, 73, 73, 0.68);
+   // font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    color: rgb(45, 252, 34);
+
+}
+
 
