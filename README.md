@@ -16,11 +16,11 @@ My work flow was as follows:
 
 User stories were:
 
-The player should be able to log in with credentials, log out, and change their password
-The player should be able to choose spaces on a grid to place an X or O
-The player must be able to know if they won, lost, or tied
-The player must be able to play again without refreshing the page
-The player should be immersed in some kind of fun or weird feeling 
+1) The player should be able to log in with credentials, log out, and change their password
+2) The player should be able to choose spaces on a grid to place an X or O
+3) The player must be able to know if they won, lost, or tied
+4) The player must be able to play again without refreshing the page
+5) The player should be immersed in some kind of fun or weird feeling 
 
 
 			
